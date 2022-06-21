@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <style>
+    .column {
+  float: center;
+  width: 100%;
+  padding: 50px;
+  height: 50px;
+    }
+    img{
+      max-width: 250px;
+      max-height:250px;
+
+    }
+  </style>
+  <!-- basic -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- mobile metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+  <!-- site metas -->
+  <title>Entro</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <!-- fevicon -->
+  <!-- bootstrap css -->
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'home/css/bootstrap.min.css' %}">
+  <!-- style css -->
+  <link rel="stylesheet" href="{% static 'home/css/style.css' %}">
+  <!-- Responsive-->
+  <link rel="stylesheet" href="{% static 'home/css/responsive.css' %}">  
+  <!-- Scrollbar Custom CSS -->
+  <link rel="stylesheet" href="{% static 'home/css/jquery.mCustomScrollbar.min.css' %}">
+  <!-- Tweaks for older IEs-->
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+</head>
+<!-- body -->
+
+<body class="main-layout" style="background-color:rgb(21, 24, 24);">
+  <!-- loader  -->
+  <!-- header -->
+  <header>
+    <!-- header inner -->
+      <div class="header">
+        <div class="container">
+          <div class="row">
+            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-3 col logo_section">
+            </div>
+            <div class="col-xl-10 col-lg-10 col-md-10 col-sm-9">
+              
+               <div class="menu-area">
+                <div class="limit-box">
+                  <nav class="main-menu ">
+                    <ul class="menu-area-main">
+                      <li > <a href="{% url 'register:private' %}">Home</a> </li>
+                  
+                      <li > <a href="{% url 'register:private_song' %}">bài hát</a> </li>
+                      <li> <a href="{% url 'register:private_singer' %}">ca sĩ </a> </li>
+                      <li class="active"> <a href="{% url 'register:private_composer' %}">nhạc sĩ</a> </li>
+      
+                        <li > <a   href="{% url 'register:logout' %}">đăng xuất</a> </li>
+                      <li  > <a  class="last_manu" href="#"><img src="{% static 'home/images/search_icon.png' %}" alt="#" /></a> </li>
+                      
+                     </ul>
+                   </nav>
+                
+               </div> 
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+     <!-- end header inner -->
+
+     <!-- end header -->
+     
+     
+    </a>
+   </div>
+
+
+</section>
+</div>
+</header>
+    
+<button href="#"></button>
+
+
+<!-- bài hát  -->
+
+<!-- end abouts -->
+<div id="songs" class="about">
+  <div class="container">
+    <div class="row display_boxflex">
+      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+        <div class="about-box">
+          <h2> NHẠC SĨ MỚI</h2>
+          <a href="{% url 'register:add_composer' %}">thêm</a>
+          {% for item in upload_composer %}
+        
+          <div >
+              <div class = "about">
+                <h3> Tên : {{item.name}}  </h3>
+                <p> Tên thật : {{item.real_name}} </p>
+                <p>  Mô tả : {{item.details}} </p>
+                <p> <img src="{{item.image.url}}" alt="" width="50%"> </p>
+                <form action="{% url 'register:delete_composer' item.id %}" method="POST">
+                  {% csrf_token %}
+                  <button type="submit" name="delete">xóa</button>
+                  </form>
+            {% endfor %}
+          </div>
+        </div>
+        
+      </div>
+      
+      
+
+  </div>
+</div>
+
+
+          <!-- Javascript files-->
+          <script src="{% static 'home/js/jquery.min.js' %}"></script>
+          <script src="{% static 'home/js/popper.min.js' %}"></script>
+          <script src="{% static 'home/js/bootstrap.bundle.min.js' %}"></script>
+          <script src="{% static 'home/js/jquery-3.0.0.min.js' %}"></script>
+          <script src="{% static 'home/js/plugin.js' %}"></script>
+          <!-- sidebar -->
+          <script src="{% static 'home/js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+          <script src="{% static 'home/js/custom.js' %}"></script>
+          <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+
+
+
+
+</body>
+
+</html>
